@@ -1,0 +1,79 @@
+<mujoco model="Bicycle Path Tracking">
+    <include file="../models/bicycle.xml" />
+    <include file="../models/humanoid.xml"/>
+    <include file="../experiments/common.xml"/>
+    <include file="../experiments/straight/scene.xml"/>
+
+    <option timestep="0.02"/>
+
+    <custom>
+        <numeric name="agent_planner" data="0"/>
+        <numeric name="agent_horizon" data="1.2"/>
+        <numeric name="agent_timestep" data="0.02"/>
+        <numeric name="sampling_sample_width" data="0.01"/>
+        <numeric name="sampling_control_width" data="0.015"/>
+        <numeric name="sampling_spline_points" data="3"/>
+        <numeric name="sampling_exploration" data="0.05"/>
+        <numeric name="gradient_spline_points" data="5"/>
+        <!-- Parameters -->
+        <numeric name="residual_Speed Goal" data="2.0 0 20"/>
+    </custom>
+
+    <sensor>
+        <!-- Weights -->
+        <user name="Action" dim="21" user="3 0.05 0.0 0.1 0.3" />
+        <user name="Path Position" dim="1" user="0 1.0 0 10.0"/>
+        <user name="Path Velocity" dim="1" user="0 0.2 0 1.0"/>
+
+        <!-- Trace -->
+        <framepos name="trace0" objtype="site" objname="tip"/>
+
+        <!-- Sensors -->
+        <subtreelinvel name="frame_subtreelinvel" body="bicycle"/>
+        <framepos name="bicycle_pos" objtype="body" objname="bicycle"/>
+        <framequat name="bicycle_quat" objtype="body" objname="bicycle"/>
+        <framexaxis name="bicycle_xaxis" objtype="body" objname="bicycle"/>
+        <frameyaxis name="bicycle_yaxis" objtype="body" objname="bicycle"/>
+        <framezaxis name="bicycle_zaxis" objtype="body" objname="bicycle"/>
+
+        <framepos name="track_pos" objtype="site" objname="seat_site"/>
+
+        <!-- Extra sensors for metrics -->
+        <subtreecom name="frame_subtreecom" body="bicycle"/>
+        <frameangvel name="frame_frameangvel" objtype="body" objname="bicycle"/>
+
+    </sensor>
+
+    <!-- Exclude problematic contacts -->
+    <contact>
+        <exclude body1="steering" body2="lower_arm_right"/>
+        <exclude body1="steering" body2="lower_arm_left"/>
+        <exclude body1="steering" body2="hand_left"/>
+        <exclude body1="steering" body2="hand_right"/>
+        <exclude body1="crank" body2="foot_right"/>
+        <exclude body1="crank" body2="foot_left"/>
+        <exclude body1="crank" body2="shin_right"/>
+        <exclude body1="crank" body2="shin_left"/>
+        <exclude body1="foot_right" body2="bicycle"/>
+        <exclude body1="foot_left" body2="bicycle"/>
+        <exclude body1="foot_right" body2="pedal_right"/>
+        <exclude body1="foot_left" body2="pedal_left"/>
+        <exclude body1="pelvis" body2="bicycle"/>
+    </contact>
+
+    <!-- Equality constraints to keep cycling position -->
+    <equality>
+        <connect site1="left_hand_site" site2="left_steering_site"/>
+        <connect site1="right_hand_site" site2="right_steering_site"/>
+        <weld site1="left_foot_site" site2="left_pedal_site" solimp="0.98 0.999 0.001 0.5 2"/>
+        <weld site1="right_foot_site" site2="right_pedal_site" solimp="0.98 0.999 0.001 0.5 2"/>
+        <connect site1="butt_site" site2="seat_site" solimp="0.95 0.99 0.001 0.5 2"/>
+    </equality>
+
+    <!-- Keyframes -->
+    <keyframe>
+        <key name="home" qpos='0 0 0.5 1 0 0 0 0 0 4.3197 1.5708 -1.5708 -1.5708 -0.25 0 1.5 1 0 0 0 0 -0.26 0 -0.083797 -0.0273915 -0.155307 -0.954859 -0.514893 0.08727 -0.083797 -0.0273915 -0.986095 -1.61942 -0.340353 0.008727 0.477525 -0.31974 -0.750274 0.477525 -0.31974 -0.750274'/>
+        <key name="test" qpos='0 0 0.5 1 0 0 0 0 0 4.3197 1.5708 -1.5708 -1.5708 -0.25 0 1.5 1 0 0 0 0 -0.26 0 -0.083797 -0.0273915 -0.155307 -0.954859 -0.514893 0.08727 -0.083797 -0.0273915 -0.986095 -1.61942 -0.340353 0.008727 0.477525 -0.31974 -0.750274 0.477525 -0.31974 -0.750274'/>
+    </keyframe>
+
+</mujoco>

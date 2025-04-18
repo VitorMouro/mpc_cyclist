@@ -1,0 +1,131 @@
+<mujoco>
+
+    <asset>
+        <mesh file="assets/stairs_001.stl"/>
+        <mesh file="assets/stairs_002.stl"/>
+        <mesh file="assets/stairs_003.stl"/>
+        <mesh file="assets/stairs_004.stl"/>
+        <mesh file="assets/stairs_005.stl"/>
+        <mesh file="assets/stairs_006.stl"/>
+        <mesh file="assets/stairs_007.stl"/>
+        <mesh file="assets/stairs_008.stl"/>
+        <mesh file="assets/stairs_009.stl"/>
+        <mesh file="assets/stairs_010.stl"/>
+        <mesh file="assets/stairs_011.stl"/>
+        <mesh file="assets/stairs_012.stl"/>
+        <mesh file="assets/stairs_013.stl"/>
+        <mesh file="assets/stairs_014.stl"/>
+        <mesh file="assets/stairs_015.stl"/>
+        <mesh file="assets/stairs_016.stl"/>
+        <mesh file="assets/stairs_017.stl"/>
+        <mesh file="assets/stairs_018.stl"/>
+        <mesh file="assets/stairs_019.stl"/>
+        <mesh file="assets/stairs_020.stl"/>
+        <mesh file="assets/stairs_021.stl"/>
+        <mesh file="assets/stairs_022.stl"/>
+        <mesh file="assets/stairs_023.stl"/>
+        <mesh file="assets/stairs_024.stl"/>
+        <mesh file="assets/stairs_025.stl"/>
+        <mesh file="assets/stairs_026.stl"/>
+        <mesh file="assets/stairs_027.stl"/>
+        <mesh file="assets/stairs_028.stl"/>
+        <mesh file="assets/stairs_029.stl"/>
+        <mesh file="assets/stairs_030.stl"/>
+        <mesh file="assets/stairs_031.stl"/>
+        <mesh file="assets/stairs_032.stl"/>
+        <mesh file="assets/stairs_033.stl"/>
+        <mesh file="assets/stairs_034.stl"/>
+        <mesh file="assets/stairs_035.stl"/>
+        <mesh file="assets/stairs_036.stl"/>
+        <mesh file="assets/stairs_037.stl"/>
+        <mesh file="assets/stairs_038.stl"/>
+        <mesh file="assets/stairs_039.stl"/>
+        <mesh file="assets/stairs_040.stl"/>
+        <mesh file="assets/stairs_041.stl"/>
+        <mesh file="assets/stairs_042.stl"/>
+        <mesh file="assets/stairs_043.stl"/>
+        <mesh file="assets/stairs_044.stl"/>
+        <mesh file="assets/stairs_045.stl"/>
+        <mesh file="assets/stairs_046.stl"/>
+        <mesh file="assets/stairs_047.stl"/>
+        <mesh file="assets/stairs_048.stl"/>
+        <mesh file="assets/stairs_049.stl"/>
+        <mesh file="assets/stairs_050.stl"/>
+        <mesh file="assets/stairs_051.stl"/>
+        <mesh file="assets/stairs_052.stl"/>
+        <mesh file="assets/stairs_053.stl"/>
+        <mesh file="assets/stairs_054.stl"/>
+        <mesh file="assets/stairs_055.stl"/>
+        <mesh file="assets/stairs_056.stl"/>
+        <mesh file="assets/stairs_057.stl"/>
+        <mesh file="assets/stairs_058.stl"/>
+        <mesh file="assets/stairs_059.stl"/>
+        <mesh file="assets/stairs_060.stl"/>
+        <mesh file="assets/stairs_061.stl"/>
+   </asset>
+
+    <worldbody>
+        <geom type="mesh" mesh="stairs_001"/>
+        <geom type="mesh" mesh="stairs_002"/>
+        <geom type="mesh" mesh="stairs_003"/>
+        <geom type="mesh" mesh="stairs_004"/>
+        <geom type="mesh" mesh="stairs_005"/>
+        <geom type="mesh" mesh="stairs_006"/>
+        <geom type="mesh" mesh="stairs_007"/>
+        <geom type="mesh" mesh="stairs_008"/>
+        <geom type="mesh" mesh="stairs_009"/>
+        <geom type="mesh" mesh="stairs_010"/>
+        <geom type="mesh" mesh="stairs_011"/>
+        <geom type="mesh" mesh="stairs_012"/>
+        <geom type="mesh" mesh="stairs_013"/>
+        <geom type="mesh" mesh="stairs_014"/>
+        <geom type="mesh" mesh="stairs_015"/>
+        <geom type="mesh" mesh="stairs_016"/>
+        <geom type="mesh" mesh="stairs_017"/>
+        <geom type="mesh" mesh="stairs_018"/>
+        <geom type="mesh" mesh="stairs_019"/>
+        <geom type="mesh" mesh="stairs_020"/>
+        <geom type="mesh" mesh="stairs_021"/>
+        <geom type="mesh" mesh="stairs_022"/>
+        <geom type="mesh" mesh="stairs_023"/>
+        <geom type="mesh" mesh="stairs_024"/>
+        <geom type="mesh" mesh="stairs_025"/>
+        <geom type="mesh" mesh="stairs_026"/>
+        <geom type="mesh" mesh="stairs_027"/>
+        <geom type="mesh" mesh="stairs_028"/>
+        <geom type="mesh" mesh="stairs_029"/>
+        <geom type="mesh" mesh="stairs_030"/>
+        <geom type="mesh" mesh="stairs_031"/>
+        <geom type="mesh" mesh="stairs_032"/>
+        <geom type="mesh" mesh="stairs_033"/>
+        <geom type="mesh" mesh="stairs_034"/>
+        <geom type="mesh" mesh="stairs_035"/>
+        <geom type="mesh" mesh="stairs_036"/>
+        <geom type="mesh" mesh="stairs_037"/>
+        <geom type="mesh" mesh="stairs_038"/>
+        <geom type="mesh" mesh="stairs_039"/>
+        <geom type="mesh" mesh="stairs_040"/>
+        <geom type="mesh" mesh="stairs_041"/>
+        <geom type="mesh" mesh="stairs_042"/>
+        <geom type="mesh" mesh="stairs_043"/>
+        <geom type="mesh" mesh="stairs_044"/>
+        <geom type="mesh" mesh="stairs_045"/>
+        <geom type="mesh" mesh="stairs_046"/>
+        <geom type="mesh" mesh="stairs_047"/>
+        <geom type="mesh" mesh="stairs_048"/>
+        <geom type="mesh" mesh="stairs_049"/>
+        <geom type="mesh" mesh="stairs_050"/>
+        <geom type="mesh" mesh="stairs_051"/>
+        <geom type="mesh" mesh="stairs_052"/>
+        <geom type="mesh" mesh="stairs_053"/>
+        <geom type="mesh" mesh="stairs_054"/>
+        <geom type="mesh" mesh="stairs_055"/>
+        <geom type="mesh" mesh="stairs_056"/>
+        <geom type="mesh" mesh="stairs_057"/>
+        <geom type="mesh" mesh="stairs_058"/>
+        <geom type="mesh" mesh="stairs_059"/>
+        <geom type="mesh" mesh="stairs_060"/>
+        <geom type="mesh" mesh="stairs_061"/>
+    </worldbody>
+
+</mujoco>

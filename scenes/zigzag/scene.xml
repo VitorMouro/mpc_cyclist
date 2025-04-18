@@ -1,0 +1,12 @@
+<mujoco>
+
+    <asset>
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+        <material name="grid" texture="grid" texrepeat="1 1" texuniform="true"/>
+    </asset>
+
+    <worldbody>
+        <geom type="plane" size="100 100 .01" material="grid"/>
+    </worldbody>
+
+</mujoco>

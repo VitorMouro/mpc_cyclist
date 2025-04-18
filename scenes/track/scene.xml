@@ -1,0 +1,24 @@
+<mujoco>
+
+    <asset>
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+        <material name="grid" texture="grid" texrepeat="1 1" texuniform="true"/>
+        <mesh file="assets/ramp.stl"/>
+        <mesh file="assets/step1.stl"/>
+        <mesh file="assets/step2.stl"/>
+        <mesh file="assets/step3.stl"/>
+        <mesh file="assets/step4.stl"/>
+        <mesh file="assets/step5.stl"/>
+    </asset>
+
+    <worldbody>
+        <geom type="plane" size="100 100 .01" material="grid"/>
+        <geom type="mesh" mesh="ramp"/>
+        <geom type="mesh" mesh="step1"/>
+        <geom type="mesh" mesh="step2"/>
+        <geom type="mesh" mesh="step3"/>
+        <geom type="mesh" mesh="step4"/>
+        <geom type="mesh" mesh="step5"/>
+    </worldbody>
+
+</mujoco>

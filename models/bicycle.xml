@@ -1,0 +1,101 @@
+<mujoco>
+    <asset>
+        <mesh file="assets/bicycle/frame.stl"/>
+        <mesh file="assets/bicycle/steering.stl"/>
+        <mesh file="assets/bicycle/seat.stl"/>
+        <mesh file="assets/bicycle/crank.stl"/>
+        <mesh file="assets/bicycle/pedal_left.stl"/>
+        <mesh file="assets/bicycle/pedal_right.stl"/>
+        <mesh file="assets/bicycle/front_wheel.stl"/>
+        <mesh file="assets/bicycle/rear_wheel.stl"/>
+        <mesh file="assets/bicycle/front_wheel_hub.stl"/>
+        <mesh file="assets/bicycle/rear_wheel_hub.stl"/>
+        <mesh file="assets/bicycle/left_handlebar.stl"/>
+        <mesh file="assets/bicycle/right_handlebar.stl"/>
+        <mesh file="assets/bicycle/left_handle.stl"/>
+        <mesh file="assets/bicycle/right_handle.stl"/>
+    </asset>
+
+    <worldbody>
+        <!-- BICYCLE -->
+        <body name="bicycle" pos="0 0 .5">
+            <light pos="0 0 6" directional="false" castshadow="true" dir="0 0 -1" mode="track" diffuse="1 1 1"/>
+            <camera name="b_right" pos="0 -3 0" xyaxes="1 0 0 0 0 1" mode="trackcom" fovy="60"/>
+            <camera name="b_left" pos="0 3 0" xyaxes="-1 0 0 0 0 1" mode="trackcom" fovy="60"/>
+            <camera name="b_top" pos="0 0 3" xyaxes="0 -1 0 1 0 0" mode="trackcom" fovy="60"/>
+            <camera name="b_front" pos="3 0 0" xyaxes="0 1 0 0 0 1" mode="trackcom" fovy="60"/>
+            <camera name="b_back" pos="-3 0 0" xyaxes="0 -1 0 0 0 1" mode="trackcom" fovy="60"/>
+            <freejoint/>
+            <site name="tip" pos="0 0 0.5"/>
+            <site name="seat_site" pos="-0.26 0 0.5"/>
+            <site name="front_wheel_contact_site" pos="0.62 0 -0.39"/>
+            <geom type="mesh" mesh="frame" mass="10"/>
+            <geom type="mesh" mesh="seat" mass="1"/>
+
+            <!-- STEERING -->
+            <body name="steering">
+                <joint type="hinge" name="steering_joint" axis="-0.11 0 0.24" pos="0.292836 0 0.512624" limited="true" range="-80 80"/>
+                <geom type="mesh" mesh="steering" mass="2"/>
+                <geom type="mesh" mesh="left_handlebar" mass="0.3"/>
+                <geom type="mesh" mesh="right_handlebar" mass="0.3"/>
+                <geom type="mesh" mesh="right_handle" mass="0.1"/>
+                <geom type="mesh" mesh="left_handle" mass="0.1"/>
+
+                <site name="right_steering_site" pos="0.11014 -0.22773 0.68226"/>
+                <site name="left_steering_site" pos="0.11014 0.22773 0.68226"/>
+                <!-- FRONT WHEEL -->
+                <body name="front_wheel">
+                    <joint type="hinge" name="front_wheel_joint" axis="0 1 0" pos="0.6217 0 -0.06129"/>
+                    <geom type="mesh" mesh="front_wheel" condim="4" friction="1 0.0005 0.0001" solimp=".9 .95 .001 0.5 2" solref=".1 1" mass="2.5"/>
+                    <geom type="mesh" mesh="front_wheel_hub"/>
+                </body>
+            </body>
+
+            <!-- REAR WHEEL -->
+            <body name="rear_wheel">
+                <joint type="hinge" name="rear_wheel_joint" axis="0 1 0" pos="-0.4937 0 -0.06129"/>
+                <geom type="mesh" mesh="rear_wheel" condim="4" friction="1 0.0005 0.0001" solimp=".9 .95 .001 0.5 2" solref=".1 1" mass="2.5"/>
+                <geom type="mesh" mesh="rear_wheel_hub"/>
+            </body>
+
+            <!-- CRANK -->
+            <body name="crank">
+                <joint type="hinge" name="crank_joint" pos="-0.025658 0 -0.110423" axis="0 1 0"/>
+                <geom type="mesh" mesh="crank" mass=".3"/>
+                <body name="pedal_left">
+                    <site name="left_pedal_site" pos="-0.12727 0.13729 0.048681"/>
+                    <joint type="hinge" name="pedal_left_joint" pos="-0.129889 0.0573 0.009774" axis="0 1 0"/>
+                    <geom type="mesh" mesh="pedal_left" mass="0.1"/>
+                </body>
+                <body name="pedal_right">
+                    <site name="right_pedal_site" pos="0.077678 -0.13784 -0.19456"/>
+                    <joint type="hinge" name="pedal_right_joint" pos="0.078673 -0.0573 -0.234007" axis="0 1 0"/>
+                    <geom type="mesh" mesh="pedal_right" mass="0.1"/>
+                </body>
+            </body>
+
+        </body>
+
+    </worldbody>
+
+    <!-- CHAIN DRIVE 2.75:1 -->
+    <equality>
+        <joint name="chain_drive" joint1="rear_wheel_joint" joint2="crank_joint" polycoef="0 2.75 0 0 0"/>
+    </equality>
+
+    <!-- Exclude contact between bycicle parts -->
+    <contact>
+        <exclude body1="crank" body2="rear_wheel"/>
+        <exclude body1="pedal_left" body2="rear_wheel"/>
+        <exclude body1="pedal_right" body2="rear_wheel"/>
+
+        <exclude body1="crank" body2="front_wheel"/>
+        <exclude body1="pedal_left" body2="front_wheel"/>
+        <exclude body1="pedal_right" body2="front_wheel"/>
+        <exclude body1="bicycle" body2="front_wheel"/>
+
+        <exclude body1="pedal_left" body2="bicycle"/>
+        <exclude body1="pedal_right" body2="bicycle"/>
+    </contact>
+
+</mujoco>
