@@ -1,7 +1,7 @@
 <h1>
     <a href="docs/demo.gif"><img
         src="docs/demo.gif"
-        alt="Demo GIF" width="300"></a>
+        alt="Demo GIF" width="720"></a>
 </h1>
 
 Controle preditivo de um ciclista em diferentes cenários de teste. Esse
